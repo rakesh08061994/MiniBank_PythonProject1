@@ -1,4 +1,3 @@
-
 import time
 import threading
 
@@ -33,7 +32,7 @@ def iAA():
                 timer.start()                                                                        
 
                 
-
+                
             # Users Authentication check  
                 if (password == Users_Details['Users_Password'][input1]):                                                               
                     print("\t\t\t\t\t Welcome " + Users_Details['Users_Name'][input1] +" to IAABank !")                                 
@@ -41,9 +40,8 @@ def iAA():
                     print("\t\t\t\t\t 1. User Details > \n\t\t\t\t\t 2. Transaction >\n\t\t\t\t\t 3. Exit >")                           
                     input2 = int(input( '\n\t\t\t\t\t Please choose your Option:   '))                                                  
 
-
-
-
+                    
+                    
             # User Details Option
                     if (input2 == 1 ):                                                                                                  
                         print("Welcome " + Users_Details['Users_Name'][input1] + " Your Details are :" )                                
@@ -68,8 +66,8 @@ def iAA():
                             print("Thank you, using to IAA BANK")                                                                       
 
 
-
-            # Transaction option Choose by the user
+                            
+                            # Transaction option Choose by the user
                     elif(input2 == 2):                                                                                                  
                         print("Welcome in Transaction Option")
                         print("______________________________")
@@ -96,8 +94,9 @@ def iAA():
                             print("\t\t\t\t______________________________")
                             Users_Details['Users_Balance'][input1] = Users_Details['Users_Balance'][input1] + input6
                             time.sleep(1)
-                            print("Your Transaction is processed . . . . \n Please wait !")     
-                            print("\n\t\t\t < Your current updated account balance is ", Users_Details['Users_Balance'][input1], ">")   
+                            print("Your Transaction is processed . . . . \n Please wait !")   
+                            time.sleep(2)  
+                            print(" Your current updated account balance is ", Users_Details['Users_Balance'][input1])   
                             break                                                                                                       
 
                         elif(input4 == 3):                                                                                              
@@ -145,11 +144,13 @@ def iAA():
         print("Incorrect user input, Watch your input please.....")
     except KeyError:
         print("Key not matching, Please use after sometime......")
-
+    except ModuleNotFoundError as e:
+        print(f"Module Error {e}")
+    except NameError as e:
+        print(f"Module not found {e}")
         
         
  # ------------------------------***********************--------------------------------------
    
 if __name__ == "__main__":
     iAA()
-
